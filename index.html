@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Fitness | เปลี่ยนตัวเองที่ SAM FITNESS</title>
+
+<!-- นำเข้าฟอนต์ Kanit สวย เด่น หนา คมชัด -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================
+   1. GLOBAL STYLES & PREMIUM THEME
+   ========================================== */
+:root {
+  --primary-color: #f1b943;     /* สีเหลืองทองพรีเมียม */
+  --primary-hover: #db9e26;   
+  --dark-bg: #66676b;           /* ดำซอฟต์แบบสปอร์ต */
+  --light-bg: #f8f9fa;        
+  --text-dark: #1c1e21;       
+  --text-muted: #65676b;      
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  background-color: #ffffff;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* หัวข้อ Section สไตล์เว็บโมเดิร์น */
+.section-title-block {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title-block h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+.section-title-block::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 15px auto 0 auto;
+  border-radius: 2px;
+}
+
+.section-title-block p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 10px 0 0 0;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* ==========================================
+   2. PREMIUM NAVIGATION BAR
+   ========================================== */
+nav {
+  background-color: var(--dark-bg);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+nav .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav .logo {
+  color: var(--primary-color);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav .nav-menu {
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav .nav-menu a {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 400;
+  padding: 8px 0;
+  position: relative;
+}
+
+nav .nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   3. HERO BANNER ZONE (สวยคมชัด ดึงรูป RO5_2.jpg เต็มสเกล)
+   ========================================== */
+.hero-section {
+  position: relative;
+  height: 600px;
+  /* เปลี่ยนมาใช้ลิงก์รูปภาพออนไลน์คุณภาพสูง */
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px); /* เพิ่มความหรูหราแบบกระจกซอฟต์ */
+  padding: 50px 60px;
+  text-align: center;
+  max-width: 750px;
+  width: 90%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.hero-box h1 {
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  letter-spacing: 0.5px;
+}
+
+.hero-box p {
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0 0 35px 0;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #000000;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 40px;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(241, 185, 67, 0.4);
+}
+
+.btn-hero:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   4. OUR SERVICES ZONE (เพิ่มรูปภาพประกอบไอคอน)
+   ========================================== */
+.services-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--light-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-img-wrapper {
+  height: 220px;
+  overflow: hidden;
+}
+
+.service-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.service-card:hover .service-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.service-card-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.service-card h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ==========================================
+   5. BRANCHES ZONE (ดีไซน์ตาม Screenshot 2026-05-29 202405_2.png แต่เพิ่มความเนี้ยบ)
+   ========================================== */
+.branches-section {
+  padding: 80px 0;
+  background-color: var(--light-bg); 
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.branch-card {
+  background-color: #ffffff;
+  padding: 45px 30px;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+  transition: var(--transition);
+}
+
+.branch-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(241, 185, 67, 0.15);
+}
+
+/* หัวข้อสาขา ตัวหนาเป๊ะตามรูปถ่าย */
+.branch-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #000000;
+}
+
+.branch-card .desc {
+  font-size: 1.1rem;
+  color: #444444;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.branch-card .status-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.branch-card .time-info {
+  font-size: 1.05rem;
+  color: #444444;
+  margin: 8px 0;
+  font-weight: 400;
+}
+
+/* ปุ่มแบบโปร่งแสงขอบเหลืองทอง */
+.btn-outline-branch {
+  display: inline-block;
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px 0;
+  border: 2px solid var(--primary-color);
+  color: #cc8f1a;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.btn-outline-branch:hover {
+  background-color: var(--primary-color);
+  color: #000000;
+}
+
+/* ==========================================
+   6. PRICING & PROMOTIONS ZONE
+   ========================================== */
+.pricing-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+.price-card {
+  background-color: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  padding: 45px 35px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+}
+
+.price-card.popular {
+  background-color: #fffdf5;
+  border: 2.5px solid var(--primary-color);
+}
+
+.badge-popular {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: 0 10px 0 12px;
+}
+
+.price-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.price-card .sub-tag {
+  color: #ff4d4d;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.price-card .amount {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.price-card .amount span {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.price-card .features-list {
+  margin: 0 0 40px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.price-card .features-list li {
+  font-size: 1.1rem;
+  color: #333333;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.btn-price-outline {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  border: 2px solid var(--primary-color);
+  color: #cc8f1a;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.btn-price-outline:hover {
+  background-color: var(--primary-color);
+  color: #000000;
+}
+
+.btn-price-solid {
+  display: inline-block;
+  width: 100%;
+  padding: 13px 0;
+  background-color: var(--primary-color);
+  color: #000000;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 15px rgba(241, 185, 67, 0.3);
+}
+
+.btn-price-solid:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================
+   7. BLOGS & NEWS ZONE (เพิ่มรูปภาพข่าวสารแบบจัดเต็ม)
+   ========================================== */
+.blog-section {
+  padding: 80px 0;
+  background-color: var(--light-bg);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.blog-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 25px;
+}
+
+.blog-card-content .category {
+  font-size: 0.95rem;
+  color: #cc8f1a;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.blog-card-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.blog-card-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+}
+
+.blog-card-content .readmore {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 2px;
+}
+
+.blog-card-content .readmore:hover {
+  color: var(--primary-hover);
+}
+
+.center-btn-wrap {
+  text-align: center;
+}
+
+.btn-all-articles {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.btn-all-articles:hover {
+  background-color: #222222;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   8. FOOTER ZONE
+   ========================================== */
+footer {
+  background-color: var(--dark-bg);
+  color: #ffffff;
+  padding: 80px 0 40px 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-col h4 {
+  color: var(--primary-color);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.footer-col p {
+  color: #9aa0a6;
+  font-size: 1.05rem;
+  margin: 0 0 15px 0;
+}
+
+.footer-col .phone-number {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.btn-call-now {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #000000;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(241, 185, 67, 0.2);
+}
+
+.btn-call-now:hover {
+  background-color: var(--primary-hover);
+}
+
+.social-links-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-item {
+  display: inline-block;
+  background-color: #1f242d;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+}
+
+.social-item:hover {
+  background-color: var(--primary-color);
+  color: #000000;
+}
+
+.copyright-text {
+  border-top: 1px solid #222731;
+  padding-top: 30px;
+  text-align: center;
+  color: #5f6368;
+  font-size: 1rem;
+}
+</style>
+</head>
+
+<body>
+
+  <!-- 2. NAVIGATION BAR -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">SAM FITNESS</div>
+      <ul class="nav-menu">
+        <li><a href="#">หน้าแรก</a></li>
+        <li><a href="ราคาและโปรโมชั่นแซมฟิตเนส.html">ราคาและโปรโมชั่น</a></li>
+        <li><a href="หน้าสาขา.html">สาขา</a></li>
+        <li><a href="เทรเนอร์ส่วนตัวแซมฟิตเนส.html">เทรนเนอร์ส่วนตัว</a></li>
+        <li><a href="ติดต่อ1.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 3. HERO BANNER ZONE -->
+  <header class="hero-section">
+    <div class="hero-box">
+      <h1>เปลี่ยนตัวเองที่ SAM FITNESS</h1>
+      <p>สร้างหุ่นในฝันของคุณ เริ่มต้นวันนี้ด้วยอุปกรณ์ระดับโลก</p>
+      <a href="#" class="btn-hero">สมัครสมาชิกเลย</a>
+    </div>
+  </header>
+
+  <!-- 4. OUR SERVICES ZONE (เพิ่มรูปภาพประกอบเพื่อความสวยงาม) -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-title-block">
+        <h2>บริการของเรา</h2>
+        <p>ยกระดับการออกกำลังกายของคุณด้วยโซนบริการที่หลากหลาย</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" alt="Weight Training">
+          </div>
+          <div class="service-card-content">
+            <h3>Weight Training</h3>
+            <p>โซนเวทเทรนนิ่งขนาดใหญ่ อุปกรณ์ครบครัน ทันสมัยตอบโจทย์ทุกมัดกล้ามเนื้อ</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=600&auto=format&fit=crop" alt="Boxing Cardio">
+          </div>
+          <div class="service-card-content">
+            <h3>Boxing Cardio</h3>
+            <p>ฝึกต่อยมวยและคาร์ดิโอสุดมันส์ ช่วยเผาผลาญไขมันและเพิ่มความฟิตอย่างรวดเร็ว</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop" alt="Personal Trainer">
+          </div>
+          <div class="service-card-content">
+            <h3>Personal Trainer</h3>
+            <p>เทรนเนอร์มืออาชีพดูแลอย่างใกล้ชิด ออกแบบโปรแกรมเฉพาะบุคคลเพื่อผลลัพธ์ที่ดีที่สุด</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BRANCHES ZONE -->
+  <section class="branches-section">
+    <div class="container">
+      <div class="section-title-block">
+        <h2>สาขาของ SAM FITNESS</h2>
+        <p>สะดวกที่ไหน ไปที่นั่น พร้อมให้บริการใกล้บ้านคุณ</p>
+      </div>
+      <div class="branches-grid">
+        <!-- สาขาอยุธยา -->
+        <div class="branch-card">
+          <h3>สาขาอยุธยา</h3>
+          <p class="desc">ใจกลางเมือง เดินทางสะดวก เครื่องเยอะ</p>
+          <div class="status-title">🟢 เปิดให้บริการ</div>
+          <div class="time-info">จันทร์-ศุกร์ 9:00-24:00 น.</div>
+          <div class="time-info">เสาร์-อาทิตย์ 12:00-24:00 น.</div>
+          <a href="#" class="btn-outline-branch">คลิก ดูรายละเอียด</a>
+        </div>
+        <!-- สาขาโรจนะ -->
+        <div class="branch-card">
+          <h3>สาขาโรจนะ</h3>
+          <p class="desc">สำหรับชาวนิคมฯ อุปกรณ์ครบครัน</p>
+          <div class="status-title">🟢 เปิดให้บริการ</div>
+          <div class="time-info">จันทร์-ศุกร์ 12:00-24:00 น.</div>
+          <div class="time-info">เสาร์-อาทิตย์ 12:00-24:00 น.</div>
+          <a href="#" class="btn-outline-branch">คลิก ดูรายละเอียด</a>
+        </div>
+        <!-- สาขาธรรมศาสตร์ -->
+        <div class="branch-card">
+          <h3>สาขาธรรมศาสตร์</h3>
+          <p class="desc">เอาใจนักศึกษาและบุคลากร เครื่องแน่นๆ</p>
+          <div class="status-title">🟢 เปิดให้บริการ</div>
+          <div class="time-info">จันทร์-ศุกร์ 6:00-24:00 น.</div>
+          <div class="time-info">เสาร์-อาทิตย์ 10:00-22:00 น.</div>
+          <a href="#" class="btn-outline-branch">คลิก ดูรายละเอียด</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRICING & PROMOTIONS ZONE -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-title-block">
+        <h2>แพ็กเกจและโปรโมชั่น</h2>
+        <p>เลือกแพ็กเกจที่ใช่สำหรับคุณ รับสิทธิ์เข้าใช้บริการได้ทั้ง 3 สาขาแบบไร้ขีดจำกัด</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div>
+            <h3>รายเดือน</h3>
+            <div class="amount">1,200<span> / เดือน</span></div>
+            <ul class="features-list">
+              <li>เข้าได้ทุกสาขา ไม่จำกัดเวลา</li>
+              <li>ใช้อุปกรณ์และคาร์ดิโอได้ทุกชนิด</li>
+              <li>ฟรี! บริการห้องอาบน้ำและล็อกเกอร์</li>
+            </ul>
+          </div>
+          <a href="https://lin.ee/s869SfX" class="btn-price-outline">สมัครสมาชิกเลย</a>
+        </div>
+        <div class="price-card popular">
+          <div class="badge-popular">🔥 คุ้มค่าที่สุด</div>
+          <div>
+            <h3>ชวนเพื่อนมาฟิตเนส</h3>
+            <div class="amount">990<span> / เดือน</span></div>
+            <ul class="features-list">
+              <li>เงื่อนไขคนที่ถูกชวนต้องไม่เคย</li>
+              <li>เป็นสมาชิกของแซมฟิตเนสมาก่อน</li>
+              <li>ราคานี้ได้ทั้งคนชวนและถูกชวน</li>
+            </ul>
+          </div>
+          <a href="https://lin.ee/s869SfX" class="btn-price-solid">สมัครสมาชิก</a>
+        </div>
+        <div class="price-card">
+          <div>
+            <h3>โปรนักศึกษา</h3>
+            <div class="sub-tag">สำหรับนักเรียน นักศึกษา</div>
+            <div class="amount">1,000<span> / เดือน</span></div>
+            <ul class="features-list">
+              <li>เพียงแสดงบัตรนักเรียน/นักศึกษา</li>
+              <li>จำกัดสิทธิ์อายุไม่เกิน 24 ปี</li>
+              <li>เข้าเล่นได้ทุกโซน ทุกสาขา</li>
+            </ul>
+          </div>
+          <a href="https://lin.ee/s869SfX" class="btn-price-outline">รับสิทธิ์โปรโมชั่น</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BLOGS & NEWS ZONE -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-title-block">
+        <h2>บทความและเคล็ดลับสุขภาพ</h2>
+        <p>อัปเดตเทรนด์การออกกำลังกายและเรื่องราวดีๆ จากทีมผู้เชี่ยวชาญ</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Yoga Class">
+          <div class="blog-card-content">
+            <div class="category">มือใหม่ต้องรู้</div>
+            <h3>มือใหม่เข้าฟิตเนสควรรู้!</h3>
+            <p>เตรียมตัวยังไง ให้ยิมลุกเป็นไฟในวันแรก.</p>
+            <a href="บทความมือควรรู้เข้าฟิตเนส.html" class="readmore">อ่านต่อทั้งหมด</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Muscle Build">
+          <div class="blog-card-content">
+            <div class="category">Q&A รวมเรื่องคาใจ</div>
+            <h3>10 คำถามเรื่องที่ควรรู้เกี่ยวกับ แซมฟิตเนส</h3>
+            <p>มีคำถามเกี่ยวกับ SAM FITNESS เรามัดรวมคำตอบมาให้แล้วที่นี่!</p>
+            <a href="บทความ10เรื่องที่ควรรู้เกี่ยวกับแซมฟิตเนส.html" class="readmore">อ่านต่อทั้งหมด</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop" alt="Fitness Challenge">
+          <div class="blog-card-content">
+            <div class="category">บทความ</div>
+            <h3>ไขข้อข้องใจ! เล่นเวทแล้ว จะหุ่นล่ำบึ้ก </h3>
+            <p>ผู้หญิงจะเป็นยักษ์จริงไหม?</p>
+            <a href="บทความ ไขข้อข้องใจ เล่นเวทแล้วจะหุ่นล่ำบึ้กเป็นยักษ์จริงไหม.html" class="readmore">อ่านต่อทั้งหมด</a>
+          </div>
+        </div>
+      </div>
+      <div class="center-btn-wrap">
+        <a href="#" class="btn-all-articles">ดูบทความทั้งหมด</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER ZONE -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h4>SAM FITNESS</h4>
+        <p>เรามุ่งมั่นที่จะมอบประสบการณ์การออกกำลังกายที่ดีที่สุด ด้วยอุปกรณ์มาตรฐานสากลและบรรยากาศที่เป็นกันเอง</p>
+        <p>เปิดบริการต้อนรับคุณทุกวัน</p>
+      </div>
+      <div class="footer-col">
+        <h4>ช่องทางติดต่อ</h4>
+        <p class="phone-number">087-3658810</p>
+        <p>สอบถามข้อมูลสาขา / โปรโมชั่นองค์กร</p>
+        <a href="tel:0873658810" class="btn-call-now">โทรหาเราตอนนี้</a>
+      </div>
+      <div class="footer-col">
+        <h4>ติดตามเราบนโซเชียล</h4>
+        <div class="social-links-wrap">
+          <a href="https://www.facebook.com/SamFitnessAyutthaya/" class="social-item">Facebook</a>
+          <a href="https://lin.ee/s869SfX" class="social-item">Line</a>
+          <a href="https://www.instagram.com/samfitnesstu?igsh=dnAybnBzeG9nZzRi&utm_source=qr" class="social-item">Instagram</a>
+          <a href="https://www.tiktok.com/@samfitness2022?_r=1&_t=ZS-96rxiCALkMC" class="social-item">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright-text">
+      © 2026 Sam Fitness. All Rights Reserved. ดีไซน์ระดับพรีเมียมเพื่อฟิตเนสของคุณ
+    </div>
+  </footer>
+
+</body>
+</html>
