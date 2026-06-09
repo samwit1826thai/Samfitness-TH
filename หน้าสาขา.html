@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Fitness Branches</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================
+   GLOBAL STYLES & LUXURY THEMING
+   ========================================== */
+body {
+    margin: 0;
+    font-family: 'Prompt', 'Arial', sans-serif;
+    background: #f1f1f2; /* พื้นหลังดำอมเทาเข้ม ดูพรีเมียม */
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 📣 แถบแจ้งเตือนพิเศษ: เล่นได้ทุกสาขา */
+.announcement-bar {
+    background: #f1b943;
+    color: #000000;
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(241, 185, 67, 0.3);
+}
+
+/* ปรับแต่ง Header */
+header {
+    background: linear-gradient(180deg, #000000 0%, #11141a 100%);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 2px solid #f1b943;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+header h1 { 
+    color: #f1b943;
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 15px rgba(241, 185, 67, 0.3);
+}
+
+header p {
+    color: #a0aec0;
+    margin: 10px 0 0 0;
+    font-size: 1.1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   PREMIUM CARD STYLES
+   ========================================== */
+.card {
+    background: rgba(39, 39, 40, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(241, 185, 67, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+                0 0 30px rgba(241, 185, 67, 0.15);
+}
+
+/* ==========================================
+   IMAGE SLIDER CUSTOMIZATION
+   ========================================== */
+.slider {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.slide { display: none; }
+.slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .slide img {
+    transform: scale(1.04);
+}
+
+/* ปุ่มควบคุม Slider สไตล์ Minimal Dark */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 12px;
+    transition: all 0.3s;
+    z-index: 10;
+}
+.prev:hover, .next:hover {
+    background: #f1b943;
+    color: #000000;
+    border-color: #f1b943;
+    box-shadow: 0 0 10px rgba(241, 185, 67, 0.5);
+}
+.prev { left: 8px; }
+.next { right: 8px; }
+
+/* ==========================================
+   TYPOGRAPHY & BUTTONS
+   ========================================== */
+.card h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin: 15px 0 12px 0;
+    font-weight: 600;
+}
+
+.card p {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+a { text-decoration: none; }
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 30px;
+    background: #f1b943;
+    color: #000000;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(241, 185, 67, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #cdbaba;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.home-zone {
+    text-align: center;
+    margin: 20px 0 60px 0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 25px;
+    background: transparent;
+    color: #a0aec0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   FOOTER CONTACT SECTION
+   ========================================== */
+footer {
+    background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 20px 30px 20px;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: #f1b943;
+    font-size: 1.2rem;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+.footer-column p {
+    color: #a0aec0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+.btn-call {
+    display: inline-block;
+    background: #f1b943;
+    color: #000000;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-call:hover {
+    background: #ffffff;
+}
+
+/* กลุ่มปุ่มโซเชียลมีเดียที่แก้ไขแล้ว */
+.social-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* เว้นระยะห่างระหว่างปุ่มซ้าย-ขวา และ บน-ล่าง เท่าๆ กัน */
+    margin-top: 15px;
+}
+
+.social-item {
+    display: inline-block;
+    background: #171b22;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.social-item:hover {
+    background: #f1b943;
+    color: #000000;
+    border-color: #f1b943;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 40px;
+    padding-top: 20px;
+    color: #4a5568;
+    font-size: 0.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement-bar">
+    🔥 พิเศษ! สมัครสมาชิกที่ SAM FITNESS สามารถเข้าใช้บริการและเล่นได้ทุกสาขาแบบไม่จำกัดเวลา
+</div>
+
+<header>
+    <h1>SAM FITNESS BRANCHES</h1>
+    <p>เลือกสาขาใกล้คุณ แล้วมาเปลี่ยนตัวเองไปด้วยกัน</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <div class="slider" id="s1">
+            <div class="slide"><img src="img/อยุธยา1.jpg"></div>
+            <div class="slide"><img src="img/ay7.jpg"></div>
+            <div class="slide"><img src="img/ay6.jpg"></div>
+            <div class="slide"><img src="img/ay5.jpg"></div>
+            <div class="slide"><img src="img/ay4.jpg"></div>
+            <div class="slide"><img src="img/ay3.jpg"></div>
+            <div class="slide"><img src="img/ay2.jpg"></div>
+            <div class="slide"><img src="img/ay1.jpg"></div>
+            <div class="slide"><img src="img/อยุธยา2.jpg"></div>
+            <div class="slide"><img src="img/อยุธยา3.jpg"></div>
+            <div class="slide"><img src="img/อยุธยา4.jpg"></div>
+            <button class="prev" onclick="move('s1',-1)">❮</button>
+            <button class="next" onclick="move('s1',1)">❯</button>
+        </div>
+
+        <h2>สาขาอยุธยา</h2>
+        <p>📍 หลังโลตัสอยุธยา เส้นทางไปวัดใหญ่</p>
+        <p>🕒 จันทร์-ศุกร์ 9:00 - 24:00 น.</p>
+        <p>🕒 เสาร์-อาทิตย์ 12:00 - 24:00 น.</p>
+        <a href="แซมฟิตเนสสาขาอยุธยา.html" class="btn">คลิก ดูรายละเอียด</a>
+    </div>
+
+    <div class="card">
+        <div class="slider" id="s2">
+            <div class="slide"><img src="img/โรจนะ1.jpg"></div>
+            <div class="slide"><img src="img/โรจนะ2.jpg"></div>
+            <div class="slide"><img src="img/RO3.jpg"></div>
+            <div class="slide"><img src="img/RO4.jpg"></div>
+            <div class="slide"><img src="img/RO5.jpg"></div>
+            <div class="slide"><img src="img/RO6.jpg"></div>
+            <div class="slide"><img src="img/RO7.jpg"></div>
+            <div class="slide"><img src="img/RO8.jpg"></div>
+            <div class="slide"><img src="img/RO9.jpg"></div>
+            <div class="slide"><img src="img/RO10.jpg"></div>
+            <div class="slide"><img src="img/RO11.jpg"></div>
+            <div class="slide"><img src="img/RO12.jpg"></div>
+            <div class="slide"><img src="img/RO13.jpg"></div>
+            <div class="slide"><img src="img/RO14.jpg"></div>
+            <div class="slide"><img src="img/RO15.jpg"></div>
+            <button class="prev" onclick="move('s2',-1)">❮</button>
+            <button class="next" onclick="move('s2',1)">❯</button>
+        </div>
+
+        <h2>สาขาโรจนะ</h2>
+        <p>📍 ใกล้ตลาดจอมพล ตรงข้ามอาป๋าหมูกระทะ</p>
+        <p>🕒 จันทร์-อาทิตย์ 12:00 - 24:00 น.</p>
+        <p>✨ เปิดให้บริการทุกวันไม่มีวันหยุด</p>
+        <a href="rojana.html" class="btn">คลิก ดูรายละเอียด</a>
+    </div>
+
+    <div class="card">
+        <div class="slider" id="s3">
+            <div class="slide"><img src="img/TU1.jpg"></div>
+            <div class="slide"><img src="img/TU2.jpg"></div>
+            <div class="slide"><img src="img/TU3.jpg"></div> 
+            <div class="slide"><img src="img/TU4.jpg"></div>
+            <div class="slide"><img src="img/TU5.jpg"></div>
+            <div class="slide"><img src="img/TU6.jpg"></div>
+            <div class="slide"><img src="img/TU7.jpg"></div>
+            <div class="slide"><img src="img/TU8.jpg"></div>
+            <div class="slide"><img src="img/TU9.jpg"></div>
+            <div class="slide"><img src="img/TU10.jpg"></div>
+            <div class="slide"><img src="img/TU11.jpg"></div>
+            <div class="slide"><img src="img/TU12.jpg"></div>
+            <div class="slide"><img src="img/TU13.jpg"></div>
+            <div class="slide"><img src="img/TU14.jpg"></div>
+            <div class="slide"><img src="img/TU15.jpg"></div>
+            <button class="prev" onclick="move('s3',-1)">❮</button>
+            <button class="next" onclick="move('s3',1)">❯</button>
+        </div>
+
+        <h2>สาขาธรรมศาสตร์</h2>
+        <p>📍 ใกล้ประตูเชียงราก 2 ม.ธรรมศาสตร์</p>
+        <p>🕒 จันทร์-ศุกร์ 6:00 - 24:00 น.</p>
+        <p>🕒 เสาร์-อาทิตย์ 10:00 - 22:00 น.</p>
+        <a href="thamasat.html" class="btn">คลิก ดูรายละเอียด</a>
+    </div>
+
+</div>
+
+<div class="home-zone">
+    <a href="หน้าแรก.html" class="btn-secondary"> กลับหน้าแรก</a>
+</div>
+
+<footer>
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <h3>SAM FITNESS</h3>
+            <p>มุ่งมั่นสร้างสุขภาพที่ดีให้กับทุกคน</p>
+            <p>เปิดให้บริการทุกวัน ยินดีต้อนรับครับ</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>ติดต่อเรา</h3>
+            <p><strong>โทร:</strong> 087-3658810</p>
+            <p>สอบถามข้อมูล / สมัครสมาชิก</p>
+            <a href="tel:0873658810" class="btn-call">โทรเลย</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>ติดตามเรา</h3>
+            <div class="social-group">
+                <a href="https://www.facebook.com/SamFitnessAyutthaya/" class="social-item">Facebook</a>
+                <a href="https://lin.ee/s869SfX" class="social-item">Line</a>
+                <a href="https://www.instagram.com/samfitnesstu?igsh=dnAybnBzeG9nZzRi&utm_source=qr" class="social-item">Instagram</a>
+                <a href="https://www.tiktok.com/@samfitness2022?_r=1&_t=ZS-96rxiCALkMC" class="social-item">TikTok</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="copyright">
+        © 2022 Sam Fitness. All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+let index = {};
+
+function move(id, step){
+  let slides = document.querySelectorAll("#"+id+" .slide");
+  if(!index[id]) index[id]=0;
+
+  slides[index[id]].style.display="none";
+  index[id]+=step;
+
+  if(index[id]>=slides.length) index[id]=0;
+  if(index[id]<0) index[id]=slides.length-1;
+
+  slides[index[id]].style.display="block";
+}
+
+function init(){
+  ["s1","s2","s3"].forEach(id=>{
+    let slides=document.querySelectorAll("#"+id+" .slide");
+    if(slides.length>0){
+      slides[0].style.display="block";
+      index[id]=0;
+    }
+  });
+}
+window.onload=init;
+</script>
+
+</body>
+</html>
